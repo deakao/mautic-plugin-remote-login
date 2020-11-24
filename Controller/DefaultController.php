@@ -13,7 +13,7 @@ use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 class DefaultController extends CommonController {
 
 
-	private $key      = '1_1upvb35og6sgcc0cw40s4o0wsc4c8cogw8g8kgwswccs8ccc4w';
+	private $key      = 'B-O%BADTCyN@#rY^QDiRi5B{4-L>|.X-l2cot@@lAhdCkqi-0+YT;9Jgbj@eLig';
 
 
 	/**
@@ -80,7 +80,7 @@ class DefaultController extends CommonController {
 		$user = $userRepository->findOneBy([
 			'email' => $email
 		]);
-
+		
 		/**
 		 * @throws BadRequestHttpException
 		 */
@@ -97,8 +97,9 @@ class DefaultController extends CommonController {
 	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
 	 */
 	private function doLogin( User $user ) {
+		
 		$token = new UsernamePasswordToken( $user, $user->getPassword(), "secured_area", $user->getRoles() );
-		$this->get( "security.context" )->setToken( $token );
+		$this->get( "security.token_storage" )->setToken( $token );
 
 		$event = new InteractiveLoginEvent( $this->request, $token );
 		$this->get( "event_dispatcher" )->dispatch( "security.interactive_login", $event );

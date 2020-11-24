@@ -11,7 +11,12 @@ return [
              'path'       => '/remotelogin/{email}',
              'controller' => 'RemoteLoginBundle:Default:login',
 	         'method'     => 'POST'
-         ]
+         ],
+         'plugin_remotelogin_login' => [
+            'path'       => '/remotelogin/{email}',
+            'controller' => 'RemoteLoginBundle:Default:login',
+            'method'     => 'GET'
+        ]
      ],
     ]
 ];
