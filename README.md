@@ -29,7 +29,8 @@ http://www.sha1-online.com/
 secret = STEP2-HASHED-KEY-HERE
 
 ## Process Remote Login
- - Post to http://yourmaticurl.com/remotelogin/{$useremail}
+### POST METHOD
+ - http://yourmaticurl.com/remotelogin/{$useremail}
  - Params: { secret }
-
- - GET to http://yourmaticurl.com/remotelogin/{$useremail}?secret={secret}
+### GET METHOD
+ - http://yourmaticurl.com/remotelogin/{$useremail}?secret={secret}
